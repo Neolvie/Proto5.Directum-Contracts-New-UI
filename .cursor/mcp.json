@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+      "playwright": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "mcp/playwright"
+        ]
+      },
+      "MCP_DOCKER": {
+        "command": "docker",
+        "args": ["mcp", "gateway", "run"]
+      }
+    }
+  }

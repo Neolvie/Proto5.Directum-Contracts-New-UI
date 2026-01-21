@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Contract Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <h1>AI Contract Assistant</h1>
+          <p>Анализ договорной документации в формате чата</p>
+        </div>
+        <div class="role-chip" id="roleChip">Роль: не выбрана</div>
+      </header>
+
+      <section class="controls">
+        <div class="control">
+          <label>Загрузка документов (1–5, до 10 МБ)</label>
+          <div class="upload-row">
+            <input type="file" id="fileInput" multiple />
+            <button id="uploadBtn">Загрузить</button>
+          </div>
+          <div class="doc-list" id="docList"></div>
+        </div>
+
+        <div class="control">
+          <label>Режим ответа</label>
+          <div class="mode-toggle" id="modeToggle">
+            <button data-mode="short" class="active">Краткий</button>
+            <button data-mode="extended">Расширенный</button>
+            <button data-mode="full">Полный</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="checks">
+        <div class="checks-header">
+          <h2>Проверки</h2>
+          <button id="addCheckBtn">Новая проверка</button>
+        </div>
+        <div class="checks-container" id="checksContainer"></div>
+      </section>
+
+      <section class="chat">
+        <div class="chat-window" id="chatWindow"></div>
+        <div class="chat-input">
+          <textarea id="chatInput" rows="2" placeholder="Введите вопрос..."></textarea>
+          <button id="sendBtn">Отправить</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal" id="roleModal">
+      <div class="modal-content">
+        <h3>Выберите роль</h3>
+        <p>Роль сохраняется и влияет на набор проверок.</p>
+        <div class="role-options">
+          <button data-role="sales">Руководитель продаж</button>
+          <button data-role="bu">Руководитель БЕ</button>
+          <button data-role="legal">Юрист</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="checkModal">
+      <div class="modal-content modal-large">
+        <h3 id="checkModalTitle">Новая проверка</h3>
+        <label>Название кнопки</label>
+        <input type="text" id="checkTitleInput" />
+        <label>Промт проверки</label>
+        <textarea id="checkPromptInput" rows="4"></textarea>
+        <div class="modal-actions">
+          <button id="improvePromptBtn">Улучшить промт</button>
+          <button id="saveCheckBtn">Сохранить</button>
+          <button id="cancelCheckBtn">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
